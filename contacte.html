@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <nav>
+            <div class="link">
+                <a href="index.html">Acasă</a>
+                <a href="galerie.html">Galerie</a>
+                <a href="contacte.html">Contacte</a>
+            </div>
+            <div class="info">
+                <a href="tel:078904042">078904042</a>
+                <a href="mailto:ruxanda.cujba07@gmail.com">Email</a>
+            </div>
+        </nav>
+
+        <div class="text">
+            <h1>Contacte</h1>
+            <p>Pentru informații suplimentare despre Movilele recifale de la Visoca, vizite organizate sau activități
+                educaționale, ne poți contacta folosind datele de mai jos.</p>
+        </div>
+    </header>
+
+    <section class="date">
+        <h2>Date de Contact</h2>
+        <div class="info">
+            <div class="unu">
+                <a href="https://maps.app.goo.gl/MTPSxmgti8nNK5XQ6">Locație: Satul Visoca, r. Soroca, RM</a>
+                <a href="tel:078904042">Telefon: 078904042</a>
+            </div>
+            <div class="doi">
+                <a href="mailto:ruxanda.cujba07@gmail.com">Email: ruxanda.cujba07@gmail.com</a>
+                <a href="https://www.facebook.com/share/g/1Cqsdn6f9m/">Facebook: Visoca</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="formular">
+        <h2>Formular de contact</h2>
+        <p>Completează formularul de mai jos pentru întrebări, propuneri sau solicitări de vizite educaționale. Vom
+            răspunde în cel mai scurt timp posibil.</p>
+        <form id="contactForm">
+            <label for="nume">Nume:</label>
+            <input type="text" id="nume" name="nume" required>
+
+            <label for="numar">Număr:</label>
+            <input type="number" id="numar" name="numar" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mesaj">Mesaj:</label>
+            <textarea id="mesaj" name="mesaj" rows="4" required></textarea>
+
+            <button type="submit">Trimite</button>
+        </form>
+        <p id="status"></p>
+    </section>
+
+    <section class="despre">
+        <div class="text">
+            <h2>Vizite educaționale și colaborări</h2>
+            <p>Instituțiile de învățământ, profesorii și organizațiile interesate de excursii sau activități
+                educaționale sunt invitate să ne contacteze pentru stabilirea detaliilor.</p>
+        </div>
+        <img src="imagini/scoala.jpg" alt="poza">
+    </section>
+
+    <section class="mapa">
+        <h2>Hartă și localizare</h2>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19237.55757541199!2d27.91437148593749!3d48.239850037096076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40ccca36a2ae101d%3A0x2256b3d80de7e8b7!2sMovilele%20recifale%20de%20l%C3%A2ng%C4%83%20satul%20Visoca!5e1!3m2!1sen!2s!4v1769516048925!5m2!1sen!2s"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <h3>Movilele Recifale de la Visoca</h3>
+                <p>
+                    Un monument natural unic din nordul Republicii Moldova, cu valoare
+                    geologică, educațională și turistică.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigare</h4>
+                <ul>
+                    <li><a href="index.html">Acasă</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="contacte.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="https://maps.app.goo.gl/MTPSxmgti8nNK5XQ6">Visoca, raionul Soroca</a>
+                <a href="tel:078904042">078904042</a>
+                <a href="mailto:ruxanda.cujba07@gmail.com">ruxanda.cujba07@gmail.com</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Movilele Recifale de la Visoca • Proiect educațional</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const form = document.getElementById("contactForm");
+        const status = document.getElementById("status");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            fetch(
+                "https://script.google.com/macros/s/AKfycbyUHza_BmdlhywKMu7GHLVPlBdo_HmejLnDInAoeZfiNt91g-AV9ym_HC-S_4fbMHXTeA/exec",
+                {
+                    method: "POST",
+                    body: formData,
+                    mode: "no-cors"
+                }
+            );
+
+            status.textContent = "Mesaj trimis cu succes!";
+            form.reset();
+        });
+
+    </script>
+
+</body>
+
+</html>
